@@ -46,10 +46,11 @@ class MyHomePage extends StatelessWidget {
                 child: Text('CHART', style: TextStyle(color: Colors.white))),
             elevation: 4,
           ),
-          Card(
-            color: Colors.red,
-            child: Text('LIST OF TX', style: TextStyle(color: Colors.white),)
-          ),
+          Column(children: transactions.map((tx) {
+            return Card(
+              child: Text(tx.title),
+            );
+          }).toList(),),
         ],
       ),
     );
