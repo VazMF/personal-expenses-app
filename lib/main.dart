@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,11 +17,11 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(
-        id: 't1', title: 'New shoes', amount: 69.90, date: DateTime.now()),
+        id: 't1', title: 'New shoes', amount: 69.99, date: DateTime.now()),
     Transaction(
         id: 't2',
         title: 'Weekly groceries',
-        amount: 16.50,
+        amount: 16.56,
         date: DateTime.now())
   ];
 
@@ -60,7 +61,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tx.amount.toString(),
+                        'R\$ ${tx.amount}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -79,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          tx.date.toString(),
+                          DateFormat.yMMMd().format(tx.date),
                           style: TextStyle(
                             color: Colors.grey,
                           ),
